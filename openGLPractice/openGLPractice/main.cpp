@@ -9,7 +9,6 @@
 #include <GLFW/glfw3.h>
 
 #include <iostream>
-#include "draw_triangle.h"
 
 void frame_buffer_size_callback(GLFWwindow* window, int width, int height);
 void processInput(GLFWwindow* window);
@@ -48,8 +47,6 @@ int main() {
         return -1;
     }
     
-    loadTriangleShader();
-    
     // render loop
     // -----------
     while (!glfwWindowShouldClose(window)) {
@@ -62,8 +59,6 @@ int main() {
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         
-        drawTriangle();
-        
         // glfw: swap buffers and
         // poll IO events (keys
         // pressed/released, mouse moved etc.)
@@ -71,7 +66,6 @@ int main() {
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
-    removeTriangleShader();
     glfwTerminate();
     return 0;
 }
