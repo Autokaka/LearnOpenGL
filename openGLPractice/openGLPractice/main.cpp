@@ -98,14 +98,15 @@ int main() {
     // and configure vertex attributes
     // ----------------------------------
     float vertices[] = {
-        0.5f, 0.5f, 0.0f, // topRight
-        0.5f, -0.5f, 0.0f, // bottomRight
-        -0.5f, 0.5f, 0.0f,  // topLeft
-        -0.5f, -0.5f, 0.0f // bottomLeft
+        -1.0f, 0.0f, 0.0f,
+        -0.5f, 1.0f, 0.0f,
+        0.0f, 0.0f, 0.0f,
+        0.5f, 1.0f, 0.0f,
+        1.0f, 0.0f, 0.0f,
     };
     unsigned int indices[] = {
-        0, 1, 2, // triangle at top right
-        1, 2, 3 // triangle at bottom left
+        0, 1, 2,
+        2, 3, 4
     };
     unsigned int VAO, VBO, EBO;
     glGenVertexArrays(1, &VAO);
