@@ -21,7 +21,6 @@
 		8E4A3A2A25CABC4000024AF4 /* OpenGL.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 8E86BDF925CAA87C00EC6043 /* OpenGL.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8EC0331325CB8E6500571E15 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EC0331225CB8E6500571E15 /* glad.c */; };
 		8EC0333925CB9D9600571E15 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E86B8A425CA8CFE00EC6043 /* main.cpp */; };
-		8EC0333E25CB9E0200571E15 /* draw_triangle.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EC0333C25CB9E0200571E15 /* draw_triangle.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -268,8 +267,6 @@
 		8E86BDFF25CAA89400EC6043 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		8E86BE0225CAA92200EC6043 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../../../../usr/local/lib/libglfw3.a; sourceTree = "<group>"; };
 		8EC0331225CB8E6500571E15 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glad.c; path = ../../glad/src/glad.c; sourceTree = "<group>"; };
-		8EC0333C25CB9E0200571E15 /* draw_triangle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = draw_triangle.cpp; sourceTree = "<group>"; };
-		8EC0336225CBB48500571E15 /* draw_triangle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = draw_triangle.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -350,8 +347,6 @@
 				8E86BB1125CA9C9E00EC6043 /* openGLPractice.entitlements */,
 				8EC0331225CB8E6500571E15 /* glad.c */,
 				8E86B8A425CA8CFE00EC6043 /* main.cpp */,
-				8EC0333C25CB9E0200571E15 /* draw_triangle.cpp */,
-				8EC0336225CBB48500571E15 /* draw_triangle.h */,
 			);
 			path = openGLPractice;
 			sourceTree = "<group>";
@@ -665,7 +660,6 @@
 			files = (
 				8EC0333925CB9D9600571E15 /* main.cpp in Sources */,
 				8EC0331325CB8E6500571E15 /* glad.c in Sources */,
-				8EC0333E25CB9E0200571E15 /* draw_triangle.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
