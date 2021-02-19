@@ -21,6 +21,7 @@
 		8E4A3A2A25CABC4000024AF4 /* OpenGL.framework in Embed Libraries */ = {isa = PBXBuildFile; fileRef = 8E86BDF925CAA87C00EC6043 /* OpenGL.framework */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8EC0331325CB8E6500571E15 /* glad.c in Sources */ = {isa = PBXBuildFile; fileRef = 8EC0331225CB8E6500571E15 /* glad.c */; };
 		8EC0333925CB9D9600571E15 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E86B8A425CA8CFE00EC6043 /* main.cpp */; };
+		8ECE517925DFAFEE002018F3 /* shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ECE517825DFAFEE002018F3 /* shader.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -267,6 +268,10 @@
 		8E86BDFF25CAA89400EC6043 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
 		8E86BE0225CAA92200EC6043 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../../../../usr/local/lib/libglfw3.a; sourceTree = "<group>"; };
 		8EC0331225CB8E6500571E15 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glad.c; path = ../../glad/src/glad.c; sourceTree = "<group>"; };
+		8ECE515125DF943A002018F3 /* shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = shader.hpp; sourceTree = "<group>"; };
+		8ECE517625DFAB9F002018F3 /* 3.3.shader.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = 3.3.shader.vs; sourceTree = "<group>"; };
+		8ECE517725DFAC15002018F3 /* 3.3.shader.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = 3.3.shader.fs; sourceTree = "<group>"; };
+		8ECE517825DFAFEE002018F3 /* shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = shader.cpp; path = ../../../../.Trash/shader.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,9 +349,13 @@
 		8E86B8A325CA8CFE00EC6043 /* openGLPractice */ = {
 			isa = PBXGroup;
 			children = (
-				8E86BB1125CA9C9E00EC6043 /* openGLPractice.entitlements */,
 				8EC0331225CB8E6500571E15 /* glad.c */,
 				8E86B8A425CA8CFE00EC6043 /* main.cpp */,
+				8ECE517825DFAFEE002018F3 /* shader.cpp */,
+				8E86BB1125CA9C9E00EC6043 /* openGLPractice.entitlements */,
+				8ECE517725DFAC15002018F3 /* 3.3.shader.fs */,
+				8ECE515125DF943A002018F3 /* shader.hpp */,
+				8ECE517625DFAB9F002018F3 /* 3.3.shader.vs */,
 			);
 			path = openGLPractice;
 			sourceTree = "<group>";
@@ -658,6 +667,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8ECE517925DFAFEE002018F3 /* shader.cpp in Sources */,
 				8EC0333925CB9D9600571E15 /* main.cpp in Sources */,
 				8EC0331325CB8E6500571E15 /* glad.c in Sources */,
 			);
