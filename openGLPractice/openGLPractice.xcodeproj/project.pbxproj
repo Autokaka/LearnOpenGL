@@ -272,8 +272,8 @@
 		8E86BE0225CAA92200EC6043 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../../../../usr/local/lib/libglfw3.a; sourceTree = "<group>"; };
 		8EC0331225CB8E6500571E15 /* glad.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = glad.c; path = ../../glad/src/glad.c; sourceTree = "<group>"; };
 		8ECE515125DF943A002018F3 /* shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = shader.hpp; sourceTree = "<group>"; };
-		8ECE517625DFAB9F002018F3 /* 4.1.texture.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = 4.1.texture.vs; sourceTree = "<group>"; };
-		8ECE517725DFAC15002018F3 /* 4.1.texture.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = 4.1.texture.fs; sourceTree = "<group>"; };
+		8ECE517625DFAB9F002018F3 /* transform.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = transform.vs; sourceTree = "<group>"; };
+		8ECE517725DFAC15002018F3 /* transform.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = transform.fs; sourceTree = "<group>"; };
 		8ECE517A25DFBE27002018F3 /* stb_image.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = stb_image.h; sourceTree = "<group>"; };
 		8ECE517B25DFBE5D002018F3 /* stb_image.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = stb_image.cpp; sourceTree = "<group>"; };
 		8ECE517D25DFBEE2002018F3 /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container.jpg; sourceTree = "<group>"; };
@@ -354,8 +354,8 @@
 		8E86B8A325CA8CFE00EC6043 /* openGLPractice */ = {
 			isa = PBXGroup;
 			children = (
-				8ECE517725DFAC15002018F3 /* 4.1.texture.fs */,
-				8ECE517625DFAB9F002018F3 /* 4.1.texture.vs */,
+				8ECE517725DFAC15002018F3 /* transform.fs */,
+				8ECE517625DFAB9F002018F3 /* transform.vs */,
 				8E4AD73B25E0ADDB00B24BE2 /* awesomeface.png */,
 				8ECE517D25DFBEE2002018F3 /* container.jpg */,
 				8EC0331225CB8E6500571E15 /* glad.c */,
@@ -810,6 +810,7 @@
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/../glfw/include",
 					"${SRCROOT}/../glad/include",
+					"${SRCROOT}/../glm/include",
 				);
 				LD_RUNPATH_SEARCH_PATHS = "${SRCROOT}/../glfw/build/src/Debug";
 				LIBRARY_SEARCH_PATHS = (
@@ -833,6 +834,7 @@
 				HEADER_SEARCH_PATHS = (
 					"${SRCROOT}/../glfw/include",
 					"${SRCROOT}/../glad/include",
+					"${SRCROOT}/../glm/include",
 				);
 				LD_RUNPATH_SEARCH_PATHS = "${SRCROOT}/../glfw/build/src/Debug";
 				LIBRARY_SEARCH_PATHS = (

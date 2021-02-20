@@ -7,6 +7,7 @@
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <glm/glm.hpp>
 
 #include <iostream>
 
@@ -52,7 +53,7 @@ int main() {
     
     // build and compile our shader program
     // ------------------------------------
-    Shader ourShader("/Users/luao/Documents/LearnOpenGL/openGLPractice/openGLPractice/4.1.texture.vs", "/Users/luao/Documents/LearnOpenGL/openGLPractice/openGLPractice/4.1.texture.fs");
+    Shader ourShader("/Users/luao/Documents/LearnOpenGL/openGLPractice/openGLPractice/transform.vs", "/Users/luao/Documents/LearnOpenGL/openGLPractice/openGLPractice/transform.fs");
     
     // set up vertex data (and buffer(s))
     // and configure vertex attributes
@@ -158,8 +159,16 @@ int main() {
         glActiveTexture(GL_TEXTURE1); // texture2, see line 137
         glBindTexture(GL_TEXTURE_2D, texture2);
         
-        // render container
+        // transformation config
+        // ---------------------
+        glm::mat4 transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
+        transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
+        transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+        // apply transformation
         ourShader.use();
+        ourShader.setMat4("transform", transform);
+        
+        // render container
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
         
