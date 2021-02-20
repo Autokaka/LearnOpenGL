@@ -20,6 +20,9 @@ void processInput(GLFWwindow* window);
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
 
+// mix value of two textures
+float alpha = 0.2f;
+
 int main() {
     // glfw: initialize and configure
     // ------------------------------
@@ -158,6 +161,9 @@ int main() {
         glActiveTexture(GL_TEXTURE1); // texture2, see line 137
         glBindTexture(GL_TEXTURE_2D, texture2);
         
+        // set uniform alpha in fragment shader
+        ourShader.setFloat("alpha", alpha);
+        
         // render container
         ourShader.use();
         glBindVertexArray(VAO);
@@ -188,6 +194,20 @@ void processInput(GLFWwindow *window)
 {
     if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
         glfwSetWindowShouldClose(window, true);
+    }
+    if(glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS) {
+        if (alpha >= 1.0f) {
+            alpha = 1.0f;
+            return;
+        }
+        alpha += 0.01f;
+    }
+    if(glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS) {
+        if (alpha <= 0.0f) {
+            alpha = 0.0f;
+            return;
+        }
+        alpha -= 0.01f;
     }
 }
 
