@@ -159,16 +159,27 @@ int main() {
         glActiveTexture(GL_TEXTURE1); // texture2, see line 137
         glBindTexture(GL_TEXTURE_2D, texture2);
         
-        // transformation config
+        // transform1
         // ---------------------
         glm::mat4 transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
         transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
         transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
         // apply transformation
-        ourShader.use();
         ourShader.setMat4("transform", transform);
+        // render container1
+        glBindVertexArray(VAO);
+        glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
         
-        // render container
+        // transform2
+        // ---------------------
+        transform = glm::mat4(1.0f); // reset first
+        transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
+        float scaleValue = sin(glfwGetTime()) / 2 + 0.5;
+        transform = glm::translate(transform, glm::vec3(-1.0f, 1.0f, 0.0f));
+        transform = glm::scale(transform, glm::vec3(scaleValue, scaleValue, scaleValue));
+        // apply transformation
+        ourShader.setMat4("transform", transform);
+        // render container2
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
         
