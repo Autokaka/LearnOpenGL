@@ -52,7 +52,7 @@ int main() {
     
     // build and compile our shader program
     // ------------------------------------
-    Shader ourShader("/absolute/path/to/4.1.texture.vs", "/absolute/path/to/4.1.texture.fs");
+    Shader ourShader("/Users/luao/Documents/LearnOpenGL/openGLPractice/openGLPractice/4.1.texture.vs", "/Users/luao/Documents/LearnOpenGL/openGLPractice/openGLPractice/4.1.texture.fs");
     
     // set up vertex data (and buffer(s))
     // and configure vertex attributes
@@ -92,15 +92,17 @@ int main() {
     
     // load and create a texture
     // -------------------------
-    unsigned int texture;
-    glGenTextures(1, &texture);
-    glBindTexture(GL_TEXTURE_2D, texture);
+    // load and bind texture1
+    unsigned int texture1, texture2;
+    glGenTextures(1, &texture1);
+    glBindTexture(GL_TEXTURE_2D, texture1);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
     int width, height, nrChannels;
-    unsigned char* data = stbi_load("/absolute/path/to/container.jpg", &width, &height, &nrChannels, 0);
+    stbi_set_flip_vertically_on_load(true);
+    unsigned char* data = stbi_load("/Users/luao/Documents/LearnOpenGL/openGLPractice/openGLPractice/container.jpg", &width, &height, &nrChannels, 0);
     if (data) {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
         glGenerateMipmap(GL_TEXTURE_2D);
@@ -108,6 +110,34 @@ int main() {
         std::cout << "Failed to load texture" << std::endl;
     }
     stbi_image_free(data);
+    // load and bind texture2
+    glGenTextures(1, &texture2);
+    glBindTexture(GL_TEXTURE_2D, texture2);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    data = stbi_load("/Users/luao/Documents/LearnOpenGL/openGLPractice/openGLPractice/awesomeface.png", &width, &height, &nrChannels, 0);
+    if (data) {
+        // PLEASE NOTE that this awesomeface.png is formated as .png file,
+        // this means it must be formated as RGBA rather than RGB.
+        // If using RGB here, you will see abnormal texture rendered
+        // in the window.
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+        glGenerateMipmap(GL_TEXTURE_2D);
+    } else {
+        std::cout << "Failed to load texture" << std::endl;
+    }
+    stbi_image_free(data);
+    
+    // tell opengl for each sampler to which texture unit it belongs to (only has to be done once)
+    // -------------------------------------------------------------------------------------------
+    // activate/use the shader before setting uniforms
+    ourShader.use();
+    // bind `uniform sampler` with texture in GPU
+    // for each texture
+    ourShader.setInt("texture1", 0); // texture1 position is allocated by TEXTURE0 -> (int) 0
+    ourShader.setInt("texture2", 1); // texture2 position is allocated by TEXTURE1 -> (int) 1
     
     // render loop
     // -----------
@@ -122,9 +152,12 @@ int main() {
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
         
-        // bind Texture
-        glBindTexture(GL_TEXTURE_2D, texture);
-
+        // bind textures on corresponding texture units
+        glActiveTexture(GL_TEXTURE0); // texture1, see line 136
+        glBindTexture(GL_TEXTURE_2D, texture1);
+        glActiveTexture(GL_TEXTURE1); // texture2, see line 137
+        glBindTexture(GL_TEXTURE_2D, texture2);
+        
         // render container
         ourShader.use();
         glBindVertexArray(VAO);

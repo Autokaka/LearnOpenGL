@@ -260,6 +260,7 @@
 /* Begin PBXFileReference section */
 		8E4A38EA25CAAF4600024AF4 /* GLFW.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = GLFW.xcodeproj; path = ../glfw/build/GLFW.xcodeproj; sourceTree = "<group>"; };
 		8E4AD70E25DFC05E00B24BE2 /* shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = shader.cpp; sourceTree = "<group>"; };
+		8E4AD73B25E0ADDB00B24BE2 /* awesomeface.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = awesomeface.png; sourceTree = "<group>"; };
 		8E86B8A125CA8CFE00EC6043 /* openGLPractice */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = openGLPractice; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E86B8A425CA8CFE00EC6043 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		8E86BB1125CA9C9E00EC6043 /* openGLPractice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = openGLPractice.entitlements; sourceTree = "<group>"; };
@@ -353,16 +354,17 @@
 		8E86B8A325CA8CFE00EC6043 /* openGLPractice */ = {
 			isa = PBXGroup;
 			children = (
-				8ECE517D25DFBEE2002018F3 /* container.jpg */,
 				8ECE517725DFAC15002018F3 /* 4.1.texture.fs */,
 				8ECE517625DFAB9F002018F3 /* 4.1.texture.vs */,
+				8E4AD73B25E0ADDB00B24BE2 /* awesomeface.png */,
+				8ECE517D25DFBEE2002018F3 /* container.jpg */,
 				8EC0331225CB8E6500571E15 /* glad.c */,
 				8E86B8A425CA8CFE00EC6043 /* main.cpp */,
 				8E86BB1125CA9C9E00EC6043 /* openGLPractice.entitlements */,
+				8E4AD70E25DFC05E00B24BE2 /* shader.cpp */,
 				8ECE515125DF943A002018F3 /* shader.hpp */,
 				8ECE517B25DFBE5D002018F3 /* stb_image.cpp */,
 				8ECE517A25DFBE27002018F3 /* stb_image.h */,
-				8E4AD70E25DFC05E00B24BE2 /* shader.cpp */,
 			);
 			path = openGLPractice;
 			sourceTree = "<group>";
